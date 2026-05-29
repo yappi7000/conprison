@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 比較・検証・ランキング型｜大人の恋愛 全8記事</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0f0d;
+    --surface: #111816;
+    --surface2: #182018;
+    --border: #243028;
+    --accent: #4ade80;
+    --accent2: #86efac;
+    --accent-dim: #166534;
+    --text: #e2ede8;
+    --text-muted: #7a9488;
+    --text-dim: #4a6458;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --blue: #60a5fa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.9;
+    font-size: 15px;
+  }
+
+  .site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header .logo {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+  }
+  .site-header .category-badge {
+    background: linear-gradient(135deg, #0a1f12, #0f2a18);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #0a0f0d 0%, #0d1a12 50%, #0a0f0d 100%);
+    padding: 80px 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '📊';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.04;
+    right: -20px;
+    top: -20px;
+    filter: blur(2px);
+  }
+  .hero .series-label {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero .series-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .hero .subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 600px;
+  }
+  .hero .count {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+  }
+  .hero .count-item .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+  }
+  .hero .count-item .label {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  .toc-section {
+    max-width: 900px;
+    margin: 0 auto 0;
+    padding: 0 40px 60px;
+  }
+  .toc-title {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .toc-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+  }
+  .toc-item:hover { border-color: var(--accent); background: var(--surface2); }
+  .toc-item .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--accent);
+    opacity: 0.6;
+    min-width: 28px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .toc-item .title { font-size: 12px; line-height: 1.6; color: var(--text-muted); }
+
+  .section-divider {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    border-top: 1px solid var(--border);
+    margin-bottom: 80px;
+  }
+
+  .article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+    scroll-margin-top: 80px;
+  }
+  .article-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .article-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 80px;
+    color: var(--accent);
+    opacity: 0.12;
+    line-height: 1;
+    margin-bottom: -16px;
+  }
+  .article-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .article-meta { display: flex; gap: 16px; align-items: center; }
+  .article-tag {
+    font-size: 10px;
+    background: linear-gradient(135deg, #0a1f12, #0f2a18);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+  }
+  .article-chars { font-size: 11px; color: var(--text-dim); }
+
+  .article-lead {
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    margin: 32px 0;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--text);
+    position: relative;
+  }
+  .article-lead::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 80px;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    line-height: 1;
+  }
+
+  .article-body p { margin-bottom: 20px; color: var(--text-muted); line-height: 2; }
+  .article-body h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin: 48px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .article-body h2::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .article-body h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent2);
+    margin: 32px 0 12px;
+  }
+
+  /* 比較テーブル */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 13px;
+  }
+  .compare-table th {
+    background: var(--surface2);
+    color: var(--accent);
+    font-weight: 500;
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .compare-table td {
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .compare-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .compare-table .good { color: var(--accent); font-weight: 500; }
+  .compare-table .bad { color: var(--red); }
+  .compare-table .mid { color: var(--amber); }
+  .compare-table .highlight-row td { background: rgba(74,222,128,0.05); border-color: var(--accent-dim); }
+
+  /* スコアバー */
+  .score-bar-wrap { margin: 6px 0; }
+  .score-bar-label { font-size: 11px; color: var(--text-dim); margin-bottom: 4px; }
+  .score-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(to right, var(--accent-dim), var(--accent));
+  }
+
+  /* ランキングカード */
+  .rank-list { margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+  .rank-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .rank-card .rank-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--text-dim);
+    min-width: 44px;
+  }
+  .rank-card.rank-1 .rank-num { color: var(--amber); }
+  .rank-card.rank-2 .rank-num { color: #94a3b8; }
+  .rank-card.rank-3 .rank-num { color: #b45309; }
+  .rank-card .rank-content { flex: 1; }
+  .rank-card .rank-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 6px; font-family: 'Noto Serif JP', serif; }
+  .rank-card .rank-desc { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+  .rank-card .rank-verdict {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+  .rank-card .verdict-good { background: rgba(74,222,128,0.1); color: var(--accent); border: 1px solid var(--accent-dim); }
+  .rank-card .verdict-mid { background: rgba(251,191,36,0.1); color: var(--amber); border: 1px solid #92400e; }
+  .rank-card .verdict-bad { background: rgba(248,113,113,0.1); color: var(--red); border: 1px solid #7f1d1d; }
+
+  /* データボックス */
+  .data-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  .data-box .data-label {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .data-box .data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .data-box .data-row:last-child { border-bottom: none; }
+  .data-box .data-val { color: var(--accent2); font-weight: 500; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #0a1a0e, #0f2414);
+    border: 1px solid var(--accent-dim);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+  .highlight-box .box-label {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .highlight-box p { color: var(--text) !important; font-size: 14px; line-height: 1.9; }
+
+  .callout {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+  .callout p { color: var(--text) !important; font-family: 'Noto Serif JP', serif; font-size: 15px; }
+
+  .styled-list { margin: 20px 0 28px; padding: 0; list-style: none; }
+  .styled-list li {
+    padding: 10px 0 10px 20px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    line-height: 1.8;
+  }
+  .styled-list li:first-child { border-top: 1px solid var(--border); }
+  .styled-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 12px; top: 11px; }
+
+  .article-conclusion {
+    background: linear-gradient(135deg, #0a1410, #0f1c14);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px;
+    margin-top: 48px;
+  }
+  .article-conclusion .label {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .article-conclusion p { font-family: 'Noto Serif JP', serif; font-size: 15px; line-height: 2; color: var(--text); }
+
+  .article-sep {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 80px;
+  }
+  .article-sep::before, .article-sep::after { content: ''; flex: 1; height: 1px; }
+  .article-sep::before { background: linear-gradient(to right, transparent, var(--border)); }
+  .article-sep::after { background: linear-gradient(to left, transparent, var(--border)); }
+  .article-sep span { font-size: 18px; opacity: 0.3; }
+
+  .footer-cta {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .footer-cta .cta-label { font-size: 11px; color: var(--text-dim); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-cta h3 { font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 500; color: var(--text); margin-bottom: 12px; }
+  .footer-cta p { color: var(--text-muted); font-size: 13px; margin-bottom: 28px; }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #16a34a);
+    color: #0a0f0d;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    padding: 14px 40px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 640px) {
+    .site-header { padding: 16px 20px; }
+    .hero, .toc-section, .article, .article-sep, .footer-cta { padding-left: 20px; padding-right: 20px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Adult Romance — Data &amp; Verdict</div>
+  <div class="category-badge">📊 比較・検証・ランキング型</div>
+</header>
+
+<section class="hero">
+  <div class="series-label">Series 03 of 06</div>
+  <h1>「実際にやってみたから、言える」<br>40代・50代の恋愛 比較・検証 全8本</h1>
+  <p class="subtitle">
+    感想ではなく、データで語る。体験したからこそわかる、比較と結論。<br>
+    「どれがいいか」を決める前に、読んでほしい8本。
+  </p>
+  <div class="count">
+    <div class="count-item"><div class="num">8</div><div class="label">Reports</div></div>
+    <div class="count-item"><div class="num">実証</div><div class="label">Based</div></div>
+    <div class="count-item"><div class="num">比較</div><div class="label">Style</div></div>
+  </div>
+</section>
+
+<section class="toc-section">
+  <div class="toc-title">Contents — 目次</div>
+  <div class="toc-grid">
+    <a href="#article1" class="toc-item"><span class="num">01</span><span class="title">マッチングアプリ5社を40代女性が半年使い比べた正直レポート</span></a>
+    <a href="#article2" class="toc-item"><span class="num">02</span><span class="title">婚活vs恋活vs自然な出会い｜3ルート同時進行の結果</span></a>
+    <a href="#article3" class="toc-item"><span class="num">03</span><span class="title">「美魔女メソッド」8種類を全部試した私が続けているもの・やめたもの</span></a>
+    <a href="#article4" class="toc-item"><span class="num">04</span><span class="title">年下男性vs同世代vs年上男性｜3パターン付き合った40代女性の本音</span></a>
+    <a href="#article5" class="toc-item"><span class="num">05</span><span class="title">イケオジ化に投資した100万円の内訳｜効果があったもの・なかったもの</span></a>
+    <a href="#article6" class="toc-item"><span class="num">06</span><span class="title">恋愛コーチング・婚活エージェント・自力活動｜費用対効果を徹底比較</span></a>
+    <a href="#article7" class="toc-item"><span class="num">07</span><span class="title">「モテる40代」と「選ばれる40代」は何が違うのか</span></a>
+    <a href="#article8" class="toc-item"><span class="num">08</span><span class="title">プロフィール写真10パターン試した結果｜「刺さる1枚」の法則</span></a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 01 -->
+<!-- ============================================================ -->
+<article class="article" id="article1">
+  <div class="article-header">
+    <div class="article-number">01</div>
+    <h1 class="article-title">マッチングアプリ5社を40代女性が半年使い比べた正直レポート<br><small style="font-size:0.65em; color:var(--text-muted);">課金額・成果・後悔 全公開</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">アプリ比較</span>
+      <span class="article-chars">約5,000字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    「どのアプリがいいですか」と聞かれるたびに、「試してみないとわからない」という答えでお茶を濁してきた。でもそれは正直じゃなかった。私はこの半年で5つのアプリを同時に使い、課金し、出会い、傷つき、比較した。その記録をそのまま出す。
+  </div>
+
+  <div class="article-body">
+    <h2>検証条件と私のプロフィール</h2>
+    <p>検証者：46歳女性、会社員、離婚経験あり、子なし。写真はプロ撮影の1枚を統一使用。自己紹介文は各アプリの特性に合わせて微調整したが、基本情報は同一。検証期間：6ヶ月間（各アプリ最低3ヶ月以上継続）。</p>
+
+    <div class="data-box">
+      <div class="data-label">総費用・総実績サマリー</div>
+      <div class="data-row"><span>総課金額</span><span class="data-val">約142,000円</span></div>
+      <div class="data-row"><span>総マッチング数</span><span class="data-val">約340件</span></div>
+      <div class="data-row"><span>実際に会った人数</span><span class="data-val">28人</span></div>
+      <div class="data-row"><span>2回以上会った人</span><span class="data-val">7人</span></div>
+      <div class="data-row"><span>交際に発展</span><span class="data-val">1人（現在も継続中）</span></div>
+    </div>
+
+    <h2>5アプリ比較レポート</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>アプリ</th>
+        <th>6ヶ月課金額</th>
+        <th>マッチ数</th>
+        <th>実際に会えた</th>
+        <th>40代向き度</th>
+        <th>総評</th>
+      </tr>
+      <tr>
+        <td>Pairs</td>
+        <td>¥38,400</td>
+        <td>約140件</td>
+        <td>11人</td>
+        <td class="mid">△</td>
+        <td class="mid">母数は最大。ただし30代前半が多い</td>
+      </tr>
+      <tr>
+        <td>with</td>
+        <td>¥23,800</td>
+        <td>約60件</td>
+        <td>4人</td>
+        <td class="mid">△</td>
+        <td class="bad">心理テスト機能は面白いが若年層向き</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>マリッシュ</td>
+        <td>¥28,600</td>
+        <td>約80件</td>
+        <td>8人</td>
+        <td class="good">◎</td>
+        <td class="good">再婚・40代以上に強い。質が高い</td>
+      </tr>
+      <tr>
+        <td>ゼクシィ縁結び</td>
+        <td>¥33,000</td>
+        <td>約40件</td>
+        <td>3人</td>
+        <td class="good">○</td>
+        <td class="mid">真剣度は高いが数が少ない</td>
+      </tr>
+      <tr>
+        <td>Omiai</td>
+        <td>¥18,200</td>
+        <td>約20件</td>
+        <td>2人</td>
+        <td class="mid">△</td>
+        <td class="bad">40代には少し難しい市場感</td>
+      </tr>
+    </table>
+
+    <h2>6ヶ月使って気づいた「本質的な差」</h2>
+
+    <h3>ユーザー層の年齢分布が命</h3>
+    <p>マッチング数が多くても、40代の自分と「同じステージ」にいる人が少なければ意味がない。Pairsはとにかくマッチ数が多かったが、いざメッセージを送り合うと「将来への温度差」を感じることが多かった。30代前半の男性と40代半ばの女性では、「今、何が欲しいか」が微妙にずれている。</p>
+
+    <h3>マリッシュが40代に向いている理由</h3>
+    <p>マリッシュはリボン機能（シングルマザー・バツイチを示すマーク）があり、再婚・バツイチに理解のあるユーザーが集まりやすい。40代以上のユーザー比率も高く、「年齢への偏見が少ない」という体感があった。マッチ数は多くないが、実際に会った8人のうち5人は「また会いたい」と思えた。数より質、という意味では最も満足度が高かった。</p>
+
+    <h3>課金設計のトラップ</h3>
+    <p>どのアプリも「いいね!」や「メッセージ機能」に課金が必要な設計で、使っているうちに「もう少し課金すれば…」という気持ちを巧みに刺激してくる。月額料金だけ見て判断するのは危険だ。「オプション課金の総額」を意識しないと、気づいたら想定の倍使っていることがある。</p>
+
+    <div class="highlight-box">
+      <div class="box-label">結論</div>
+      <p>40代女性が最初に試すべきは<strong>マリッシュ</strong>、次点で<strong>ゼクシィ縁結び</strong>。Pairsは母数を増やしたい場合に有効だが、年齢層のミスマッチに注意。2〜3アプリの同時並行は有効だが、管理コストがかかるため「メイン1本＋サブ1本」が現実的。</p>
+    </div>
+
+    <h2>後悔していること</h2>
+    <p>正直に言う。後悔していることは「アプリの選定」ではなく「プロフィール文の更新を怠ったこと」だ。最初に書いた文章を3ヶ月間変えなかった。アルゴリズム的にも、定期的な更新がマッチング率に影響するアプリは多い。写真も、最初の1枚だけではなく、季節やシーンを変えて複数枚用意すればよかった。</p>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>142,000円と6ヶ月と28人の出会い。高いと感じる人もいるだろう。でも今のパートナーとの関係を考えると、私には十分な投資だった。大切なのはアプリ選びより「どんな自分で使うか」だと、28人と話してわかった。アプリは出会いの入り口に過ぎない。その先は、いつも自分次第だ。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 02 -->
+<!-- ============================================================ -->
+<article class="article" id="article2">
+  <div class="article-header">
+    <div class="article-number">02</div>
+    <h1 class="article-title">婚活vs恋活vs自然な出会い｜40代が3ルートを同時進行した結果わかったこと<br><small style="font-size:0.65em; color:var(--text-muted);">並行検証レポート</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">出会い方比較</span>
+      <span class="article-chars">約4,900字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    「婚活と恋活、どう違うの？」という質問から始まった検証だった。調べていくうちに「じゃあ自然な出会いも含めて、全部並行でやってみよう」という無謀な決断をした。44歳、独身、3ルート同時進行。半年後に得た答えは、予想外のものだった。
+  </div>
+
+  <div class="article-body">
+    <h2>3ルートの定義と私がやったこと</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>ルート</th>
+        <th>具体的な手段</th>
+        <th>月間コスト</th>
+        <th>時間投資</th>
+      </tr>
+      <tr>
+        <td><strong>婚活</strong></td>
+        <td>結婚相談所（IBJ加盟）＋婚活パーティー月2回</td>
+        <td>約¥35,000</td>
+        <td>週8〜10時間</td>
+      </tr>
+      <tr>
+        <td><strong>恋活</strong></td>
+        <td>マッチングアプリ2本（Pairs＋マリッシュ）</td>
+        <td>約¥9,000</td>
+        <td>週4〜6時間</td>
+      </tr>
+      <tr>
+        <td><strong>自然な出会い</strong></td>
+        <td>趣味コミュニティ（読書会・料理教室）＋友人紹介</td>
+        <td>約¥8,000</td>
+        <td>週3〜4時間</td>
+      </tr>
+    </table>
+
+    <h2>6ヶ月間の実績比較</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>指標</th>
+        <th>婚活</th>
+        <th>恋活</th>
+        <th>自然な出会い</th>
+      </tr>
+      <tr>
+        <td>会った人数</td>
+        <td>14人</td>
+        <td>18人</td>
+        <td>4人</td>
+      </tr>
+      <tr>
+        <td>2回以上会えた</td>
+        <td>4人</td>
+        <td>6人</td>
+        <td>3人</td>
+      </tr>
+      <tr>
+        <td>「また会いたい」と思えた率</td>
+        <td class="mid">28%</td>
+        <td class="mid">33%</td>
+        <td class="good">75%</td>
+      </tr>
+      <tr>
+        <td>交際発展</td>
+        <td>0人</td>
+        <td>1人（2ヶ月で終了）</td>
+        <td class="good">1人（継続中）</td>
+      </tr>
+      <tr>
+        <td>精神的コスト</td>
+        <td class="bad">高い</td>
+        <td class="mid">中程度</td>
+        <td class="good">低い</td>
+      </tr>
+      <tr>
+        <td>総費用</td>
+        <td class="bad">¥210,000</td>
+        <td class="mid">¥54,000</td>
+        <td class="good">¥48,000</td>
+      </tr>
+    </table>
+
+    <h2>なぜ「自然な出会い」が圧勝したのか</h2>
+    <p>数字だけ見れば明らかだが、「なぜ」を言語化することが重要だ。</p>
+
+    <h3>婚活の問題点：「査定」の空気</h3>
+    <p>結婚相談所は、システムとして「相性確認より条件確認」が先に来る。年収、資産、家族構成、結婚歴——会う前にすべてが開示されている。その情報があることで、初対面から「この人は〇〇な人」という先入観で見てしまう。逆も然りだ。お互いに「商品を見るような目」が働いてしまい、自然なつながりが生まれにくい。</p>
+
+    <h3>恋活の問題点：「スクリーニング疲れ」</h3>
+    <p>アプリは効率的だが、「効率的に選ぶ」プロセスが続くと、人を見るのが「審査」になってくる。写真を見てスワイプし、プロフィールを読んで判断し、メッセージで相手を測る。これを繰り返すうちに、「どうせこの人も違う」という感覚が先に来るようになった。</p>
+
+    <h3>自然な出会いの強さ：「文脈の共有」</h3>
+    <p>読書会で出会った人とは、最初から「共通の話題」がある。目的もない、利害もない、ただ同じものが好きという共通点から関係が始まる。「出会いを求める場」ではないから、自分を良く見せようという意識も薄い。素の自分が出やすく、素の相手も見えやすい。</p>
+
+    <div class="callout">
+      <p>「また会いたい」と思える率が婚活28%・恋活33%に対し、自然な出会いが75%だったのは、「共通の文脈」の有無が大きく影響していると分析している。</p>
+    </div>
+
+    <h2>3ルート、どう組み合わせるべきか</h2>
+    <p>すべてを並行でやった体験から言えば、「自然な出会いをメインにしながら、恋活を補助で使う」が最も効率的だ。婚活（特に結婚相談所）は、「結婚という明確なゴールがあり、お金と時間を惜しまない場合」に限定した方がいい。精神的コストが高く、向かない人には本当に消耗する。</p>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>効率よく出会うことと、心が動く出会いをすることは、時に矛盾する。婚活は効率的だが、心が動きにくい。自然な出会いは非効率だが、心が動きやすい。40代の恋愛で本当に大切なのはどちらか——その答えは、3ルートを同時に走ってみてはじめて、見えてきた。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 03 -->
+<!-- ============================================================ -->
+<article class="article" id="article3">
+  <div class="article-header">
+    <div class="article-number">03</div>
+    <h1 class="article-title">「美魔女メソッド」8種類を全部試した私が、続けているもの・やめたもの<br><small style="font-size:0.65em; color:var(--text-muted);">2年間の検証レポート</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">美容メソッド検証</span>
+      <span class="article-chars">約5,000字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    「美魔女」という言葉に憧れた45歳の私は、2年かけて8種類のメソッドを実際に試した。お金も時間も、かなり使った。今から正直に言う。続けているのは3つだけだ。やめた5つには、やめた理由がある。
+  </div>
+
+  <div class="article-body">
+    <h2>検証した8つのメソッドと結果</h2>
+
+    <div class="rank-list">
+      <div class="rank-card rank-1">
+        <div class="rank-num">続</div>
+        <div class="rank-content">
+          <div class="rank-title">①  腸活（食物繊維・発酵食品の習慣化）</div>
+          <div class="rank-desc">月コスト約¥3,000。6ヶ月で肌のくすみが明らかに改善。体重は2kg減。なにより「調子がいい」という体感が持続している。コストと効果のバランスが最も優れていた。</div>
+          <span class="rank-verdict verdict-good">★ 継続中・最も効果大</span>
+        </div>
+      </div>
+      <div class="rank-card rank-2">
+        <div class="rank-num">続</div>
+        <div class="rank-content">
+          <div class="rank-title">② 週3回の筋トレ（自重トレ中心）</div>
+          <div class="rank-desc">ジムではなく自宅で30分。姿勢が変わり、歩き方が変わった。「動ける体」になった実感が、自己肯定感にも影響している。外見より内側の変化が大きかった。</div>
+          <span class="rank-verdict verdict-good">★ 継続中・姿勢・自信に効果</span>
+        </div>
+      </div>
+      <div class="rank-card rank-3">
+        <div class="rank-num">続</div>
+        <div class="rank-content">
+          <div class="rank-title">③ 睡眠の質管理（就寝前ルーティン＋遮光）</div>
+          <div class="rank-desc">コスト最小、効果最大。睡眠の質が変わると翌日の肌が変わる。これだけは外見ケアのすべての「土台」になっていると感じる。</div>
+          <span class="rank-verdict verdict-good">★ 継続中・コスパ最強</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>やめた5つと、やめた理由</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>メソッド</th>
+        <th>試した期間</th>
+        <th>月コスト</th>
+        <th>やめた理由</th>
+      </tr>
+      <tr>
+        <td>高額フェイシャルエステ</td>
+        <td>8ヶ月</td>
+        <td>¥38,000</td>
+        <td class="bad">やめると元に戻る。依存性が高くコスパが悪い</td>
+      </tr>
+      <tr>
+        <td>糖質制限ダイエット</td>
+        <td>4ヶ月</td>
+        <td>¥6,000増</td>
+        <td class="bad">リバウンドと食事制限のストレスで精神的に辛くなった</td>
+      </tr>
+      <tr>
+        <td>サプリ大量摂取（7種）</td>
+        <td>6ヶ月</td>
+        <td>¥22,000</td>
+        <td class="mid">効果が実感できず。腸活1本に絞った方が体感があった</td>
+      </tr>
+      <tr>
+        <td>週6回のジム通い</td>
+        <td>3ヶ月</td>
+        <td>¥12,000＋時間</td>
+        <td class="bad">オーバーワークで体調を崩した。週3回に減らして継続</td>
+      </tr>
+      <tr>
+        <td>美容医療（ハイフ）</td>
+        <td>2回試した</td>
+        <td>¥60,000/回</td>
+        <td class="mid">効果は感じたが、費用対効果として継続判断が難しい</td>
+      </tr>
+    </table>
+
+    <div class="callout">
+      <p>「続けられないメソッドに効果はない」——これが2年間の最大の学びだ。どれほど効果があっても、生活に無理なく組み込めないものは、長期的には「やった気になっただけ」に終わる。</p>
+    </div>
+
+    <h2>「美魔女」を目指すことの本質的な問い</h2>
+    <p>2年間の検証を終えて、私が問い直したことがある。「きれいになること」の目的は何か、ということだ。</p>
+    <p>最初は「恋愛で選ばれるため」だった。でも継続できた3つのメソッドは、どれも「外見への直接的なアプローチ」ではなかった。腸活、筋トレ、睡眠——これらは「体が内側から変わる」ことで、結果として外見に影響した。</p>
+    <p>目的を「選ばれること」から「自分が心地よくいること」に変えたとき、続けられるものが増えた。そしてそのとき初めて、「きれいになっていく感覚」が義務ではなく喜びになった。</p>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>8つを試して3つ残った。これは「5つが無駄だった」のではなく、「3つを見つけるために5つが必要だった」と今は思っている。自分に合うものは、試してみないとわからない。でも「続けられるかどうか」を判断基準にすれば、選択肢は自然と絞られてくる。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 04 -->
+<!-- ============================================================ -->
+<article class="article" id="article4">
+  <div class="article-header">
+    <div class="article-number">04</div>
+    <h1 class="article-title">年下男性vs同世代男性vs年上男性｜3パターン付き合った40代女性が語る本音比較<br><small style="font-size:0.65em; color:var(--text-muted);">感情と現実のギャップを数字で見る</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">パートナー比較</span>
+      <span class="article-chars">約5,000字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    10年で3人、それぞれ「年下・同世代・年上」と付き合った。統計的には少ないサンプルだが、三者三様の体験は「それぞれの型のリアル」を教えてくれた。どれが正解、という話ではない。ただ、「違いを知っていた方がよかった」と思ったことは、たくさんあった。
+  </div>
+
+  <div class="article-body">
+    <h2>3人の概要</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th></th>
+        <th>Aさん（年下）</th>
+        <th>Bさん（同世代）</th>
+        <th>Cさん（年上）</th>
+      </tr>
+      <tr>
+        <td>年齢差</td>
+        <td>−12歳</td>
+        <td>+1歳</td>
+        <td>+9歳</td>
+      </tr>
+      <tr>
+        <td>付き合った期間</td>
+        <td>1年8ヶ月</td>
+        <td>3年2ヶ月</td>
+        <td>2年</td>
+      </tr>
+      <tr>
+        <td>出会いのきっかけ</td>
+        <td>職場の後輩</td>
+        <td>共通の友人紹介</td>
+        <td>マッチングアプリ</td>
+      </tr>
+      <tr>
+        <td>別れた理由</td>
+        <td>将来観の相違</td>
+        <td>お互いの変化</td>
+        <td>生活ペースの違い</td>
+      </tr>
+    </table>
+
+    <h2>各パターンの「良かった点」と「難しかった点」</h2>
+
+    <h3>年下（Aさん）との関係</h3>
+
+    <div class="data-box">
+      <div class="data-label">年下との恋愛スコア（私の主観 10点満点）</div>
+      <div class="data-row"><span>ときめき・ドキドキ</span><span class="data-val">9点</span></div>
+      <div class="data-row"><span>日常の安定感</span><span class="data-val">5点</span></div>
+      <div class="data-row"><span>将来設計の一致</span><span class="data-val">3点</span></div>
+      <div class="data-row"><span>話題の共有度</span><span class="data-val">7点</span></div>
+      <div class="data-row"><span>精神的な安心感</span><span class="data-val">5点</span></div>
+    </div>
+
+    <p>Aさんとの時間は、今でも「一番楽しかった」と思う部分がある。エネルギーが高く、好奇心が旺盛で、「次どこ行こう」という会話がいつも弾んだ。でも「10年後どうしたいか」という話になると、温度差が出た。私はそろそろ「落ち着いた日常」が欲しかったが、彼はまだ「冒険の途中」だった。</p>
+
+    <h3>同世代（Bさん）との関係</h3>
+
+    <div class="data-box">
+      <div class="data-label">同世代との恋愛スコア</div>
+      <div class="data-row"><span>ときめき・ドキドキ</span><span class="data-val">6点</span></div>
+      <div class="data-row"><span>日常の安定感</span><span class="data-val">8点</span></div>
+      <div class="data-row"><span>将来設計の一致</span><span class="data-val">7点</span></div>
+      <div class="data-row"><span>話題の共有度</span><span class="data-val">9点</span></div>
+      <div class="data-row"><span>精神的な安心感</span><span class="data-val">8点</span></div>
+    </div>
+
+    <p>Bさんとの3年間は、「安心」の連続だった。同じ時代の音楽、似た職場の悩み、同じくらいの将来への焦り。「わかる」という言葉が、会話の中に一番多く出た関係だった。別れた理由は、「お互いが変化した」こと。3年でそれぞれが成長した方向が、少しずつずれていった。</p>
+
+    <h3>年上（Cさん）との関係</h3>
+
+    <div class="data-box">
+      <div class="data-label">年上との恋愛スコア</div>
+      <div class="data-row"><span>ときめき・ドキドキ</span><span class="data-val">6点</span></div>
+      <div class="data-row"><span>日常の安定感</span><span class="data-val">7点</span></div>
+      <div class="data-row"><span>将来設計の一致</span><span class="data-val">6点</span></div>
+      <div class="data-row"><span>話題の共有度</span><span class="data-val">7点</span></div>
+      <div class="data-row"><span>精神的な安心感</span><span class="data-val">9点</span></div>
+    </div>
+
+    <p>Cさんといると、「守られている感覚」があった。精神的に安定しており、感情的な言動が少なく、こちらが落ち込んでいるときの受け止め方が上手だった。ただ、生活のリズムが合わなかった。早寝早起き、食事の時間帯、週末の過ごし方——細かいことの積み重ねが、2年で限界になった。</p>
+
+    <div class="callout">
+      <p>「ドキドキ」と「安心」はトレードオフになりやすい。年下はドキドキが高く安定が低い傾向。年上は安心が高くドキドキが低い傾向。同世代はその中間——ただし「変化への対応」が鍵になる。</p>
+    </div>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>3パターンを体験して思うのは、「年齢差より、今自分が何を必要としているか」の方が、パートナー選びには重要だということだ。ドキドキが欲しい時期か、安心が欲しい時期か、共鳴が欲しい時期か。その問いへの答えが、「今の自分に合う人」の年齢を教えてくれる。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 05 -->
+<!-- ============================================================ -->
+<article class="article" id="article5">
+  <div class="article-header">
+    <div class="article-number">05</div>
+    <h1 class="article-title">イケオジ化に投資した100万円の内訳｜効果があったもの・なかったもの全公開<br><small style="font-size:0.65em; color:var(--text-muted);">48歳男性の2年間投資レポート</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">投資効果検証</span>
+      <span class="article-chars">約5,000字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    「イケオジになる」と決めた48歳の自分は、2年間で約100万円を使った。多いと思うか、適切と思うかは人それぞれだ。ただ言えるのは、その100万円の中に「明らかに無駄だったもの」と「人生を変えたもの」が両方あったということだ。全部、正直に話す。
+  </div>
+
+  <div class="article-body">
+    <h2>2年間の投資内訳（約100万円）</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>カテゴリ</th>
+        <th>内容</th>
+        <th>費用</th>
+        <th>効果判定</th>
+      </tr>
+      <tr class="highlight-row">
+        <td>服・スタイリング</td>
+        <td>コーディネート相談＋ワードローブ刷新</td>
+        <td>¥220,000</td>
+        <td class="good">◎ 効果大</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>パーソナルトレーニング</td>
+        <td>週2回×18ヶ月</td>
+        <td>¥280,000</td>
+        <td class="good">◎ 効果大</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>ヘアスタイル・ケア</td>
+        <td>美容師変更＋定期カット＋ヘアケア用品</td>
+        <td>¥95,000</td>
+        <td class="good">○ 効果あり</td>
+      </tr>
+      <tr>
+        <td>スキンケア</td>
+        <td>メンズコスメ＋基礎ケア用品</td>
+        <td>¥68,000</td>
+        <td class="mid">△ 効果限定的</td>
+      </tr>
+      <tr>
+        <td>歯のホワイトニング</td>
+        <td>歯科クリニック3回</td>
+        <td>¥85,000</td>
+        <td class="good">○ 印象改善</td>
+      </tr>
+      <tr>
+        <td>香水・グルーミング</td>
+        <td>フレグランス＋ひげ・眉の整え</td>
+        <td>¥42,000</td>
+        <td class="good">○ 効果あり</td>
+      </tr>
+      <tr>
+        <td>コミュニケーション講座</td>
+        <td>会話術セミナー＋書籍</td>
+        <td>¥78,000</td>
+        <td class="bad">✕ ほぼ無駄</td>
+      </tr>
+      <tr>
+        <td>高級時計</td>
+        <td>見栄のための購入</td>
+        <td>¥135,000</td>
+        <td class="bad">✕ 全くの無駄</td>
+      </tr>
+    </table>
+
+    <h2>「効果大」だった投資について詳しく</h2>
+
+    <h3>服・スタイリング（¥220,000）→ 最も費用対効果が高かった</h3>
+    <p>スタイリストに相談して、「今持っている服で使えるもの・捨てるもの」を仕分けてもらったことが最初のステップだった。その後、15着程度の「コアワードローブ」を揃えた。驚いたのは、出会いの数より「会話の質」が変わったことだ。「センスいいですね」と言われることが増えたが、それより「なんか話しかけやすくなった」という変化が大きかった。</p>
+
+    <h3>パーソナルトレーニング（¥280,000）→ 外見より内側が変わった</h3>
+    <p>体重は6kg減ったが、それより大きかったのは「姿勢と歩き方の変化」だ。猫背が改善し、歩き方に自信が出た。姿勢は第一印象に直結する。どんな服を着ていても、姿勢が悪い人はスタイルが良く見えない。逆に言えば、姿勢だけで5歳若く見えることがある。</p>
+
+    <h2>「ほぼ無駄」だった投資</h2>
+
+    <h3>コミュニケーション講座（¥78,000）→ 技術は使えなかった</h3>
+    <p>会話術のセミナーで「質問力」「傾聴スキル」「ユーモアの作り方」を学んだ。内容は悪くなかった。ただ、実際の会話でそれを「使おう」とすると、不自然になった。習ったテクニックを意識している間は、自然な会話ができない。結局、「教わった技術」より「相手への興味」の方がはるかに大事だとわかった。</p>
+
+    <h3>高級時計（¥135,000）→ 完全に見栄だった</h3>
+    <p>これは正直に言う。「高級時計をしているとモテる」という話を信じて買った。完全に間違いだった。時計で会話が弾んだことはなく、それが原因でマッチングが増えたこともなかった。見栄のための消費は、恋愛効果に直結しない。むしろ「もっといいものを持たなければ」という焦りを生んだだけだった。</p>
+
+    <div class="highlight-box">
+      <div class="box-label">100万円の結論</div>
+      <p>効果があったのは「身体への投資（トレーニング）」と「見え方への投資（服・髪）」だった。効果がなかったのは「技術の習得（会話術）」と「モノへの投資（時計）」だった。内側と外側の基礎を整えることが先で、テクニックやアクセサリーはその後の話だ。</p>
+    </div>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>100万円使って得た最大の学びは、「人を変えるのはお金ではなく、習慣だ」ということだ。パーソナルトレーニングが効いたのは「週2回続けたから」だ。服が効いたのは「毎日選ぶ意識が変わったから」だ。一回の大きな投資より、小さな習慣の積み重ねの方が、人を変える。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 06 -->
+<!-- ============================================================ -->
+<article class="article" id="article6">
+  <div class="article-header">
+    <div class="article-number">06</div>
+    <h1 class="article-title">恋愛コーチング・婚活エージェント・自力活動｜費用対効果を徹底比較した話<br><small style="font-size:0.65em; color:var(--text-muted);">45歳女性の1年間並行検証</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">サービス比較</span>
+      <span class="article-chars">약4,900字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    「プロに頼むべきか、自力でやるべきか」という問いは、婚活・恋活業界では永遠のテーマだ。私は1年間、3つの方法を実際に試して比較した。結論から言えば、「どれが正解か」より「どれが自分に合うか」が、はるかに重要だった。
+  </div>
+
+  <div class="article-body">
+    <h2>3つのアプローチと費用</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>アプローチ</th>
+        <th>具体的な内容</th>
+        <th>1年間の総費用</th>
+      </tr>
+      <tr>
+        <td>恋愛コーチング</td>
+        <td>月2回セッション（オンライン）×9ヶ月</td>
+        <td>¥297,000</td>
+      </tr>
+      <tr>
+        <td>婚活エージェント</td>
+        <td>中規模エージェント、成婚料込みプラン</td>
+        <td>¥420,000（初期費用）</td>
+      </tr>
+      <tr>
+        <td>自力活動</td>
+        <td>マッチングアプリ2本＋コミュニティ活動</td>
+        <td>¥68,000</td>
+      </tr>
+    </table>
+
+    <h2>各アプローチの実態と評価</h2>
+
+    <h3>恋愛コーチング：「自己理解」には強い</h3>
+    <p>最初の3ヶ月は、「自分の恋愛パターン」を掘り下げることに使った。なぜ同じタイプに惹かれるのか、なぜ関係が深まる前に終わるのか——これを言語化できたことは大きかった。コーチングの価値は「出会いを増やすこと」ではなく「自分を知ること」だと気づいた。</p>
+    <p>ただ、コーチの質に大きく左右される。私は当たりのコーチだったが、知人は「ただ話を聞いてくれるだけ」のコーチに高額を払い続けて後悔していた。</p>
+
+    <h3>婚活エージェント：「効率」と「心理的コスト」のトレードオフ</h3>
+    <p>エージェントは「条件で絞り込んだ相手を紹介してくれる」という意味で効率的だ。ただ、初回費用42万円という数字が常に頭にあった。「これだけ払ったのだから成果を出さなければ」というプレッシャーが、デートを「査定」にしてしまった。</p>
+    <p>担当者の質も重要だ。私の担当者は親身だったが、「紹介数ノルマ」があるのか、明らかに合わない相手を繰り返し紹介してくることもあった。</p>
+
+    <h3>自力活動：「コスト最小、自由度最大」</h3>
+    <p>68,000円で最も多くの出会いを得られた。ただし「管理」が必要だ。誰と会ったか、どんな会話をしたか、次のアクションは何か——これを自分でマネジメントできる人には向いている。逆に、「誰かに管理してほしい」「アドバイスが欲しい」という人には向かない。</p>
+
+    <div class="compare-table" style="margin-top: 24px;">
+      <table class="compare-table">
+        <tr>
+          <th>評価軸</th>
+          <th>コーチング</th>
+          <th>エージェント</th>
+          <th>自力</th>
+        </tr>
+        <tr>
+          <td>費用対効果</td>
+          <td class="mid">△</td>
+          <td class="bad">✕</td>
+          <td class="good">◎</td>
+        </tr>
+        <tr>
+          <td>自己理解の深まり</td>
+          <td class="good">◎</td>
+          <td class="bad">✕</td>
+          <td class="mid">△</td>
+        </tr>
+        <tr>
+          <td>出会いの数</td>
+          <td class="bad">✕</td>
+          <td class="mid">△</td>
+          <td class="good">◎</td>
+        </tr>
+        <tr>
+          <td>出会いの質</td>
+          <td class="mid">△</td>
+          <td class="mid">△</td>
+          <td class="good">○</td>
+        </tr>
+        <tr>
+          <td>精神的コスト</td>
+          <td class="good">低い</td>
+          <td class="bad">高い</td>
+          <td class="mid">中程度</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p>「自分を変えたいなら」コーチング。「効率よく出会いたいなら」自力＋アプリ。「プロに全部任せたいなら」エージェント——ただし、エージェントは費用に見合う成果を期待しすぎると消耗する。</p>
+    </div>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>3つを試して思うのは、「外部サービスは補助であって、主役は常に自分だ」ということだ。コーチングも、エージェントも、アプリも、「自分がどう動くか」を代わりにやってはくれない。最終的に人と人がつながる瞬間には、必ず「自分」がいる。その自分を整えることに投資するのが、最も費用対効果の高い選択だった。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 07 -->
+<!-- ============================================================ -->
+<article class="article" id="article7">
+  <div class="article-header">
+    <div class="article-number">07</div>
+    <h1 class="article-title">「モテる40代」と「選ばれる40代」は何が違うのか｜100人インタビューで見えた差<br><small style="font-size:0.65em; color:var(--text-muted);">定性調査レポート</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">調査・分析</span>
+      <span class="article-chars">약4,900字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    「モテる」と「選ばれる」は、同じ言葉のように使われている。でも私が100人にインタビューして気づいたのは、この2つはまったく別の現象だということだ。モテるのに選ばれない人がいる。モテなくても選ばれる人がいる。その差は、思っていた場所にはなかった。
+  </div>
+
+  <div class="article-body">
+    <h2>インタビュー概要</h2>
+    <p>40〜55歳の男女100人（男性48人・女性52人）に対して、「恋愛における自己評価」「過去3年間の出会いと交際の実績」「パートナーを選ぶ際の決め手」についてインタビューを実施（やり取りベースの定性調査）。</p>
+
+    <h2>「モテる40代」の特徴</h2>
+    <ul class="styled-list">
+      <li>外見への投資をしており、第一印象が良い</li>
+      <li>会話が上手く、場の空気を明るくできる</li>
+      <li>出会いの数が多く、常に「誰かと会っている」状態</li>
+      <li>SNSのフォロワーが多く、社会的プレゼンスが高い</li>
+      <li>異性からの「いいね」「また会いたい」の獲得率が高い</li>
+    </ul>
+
+    <h2>「選ばれる40代」の特徴</h2>
+    <ul class="styled-list">
+      <li>出会いの数は少ないが、交際転換率が高い</li>
+      <li>自分の「軸」を持っており、ブレない</li>
+      <li>相手に対して「ちゃんと見ている」という安心感を与える</li>
+      <li>感情の安定性が高く、関係の中でパニックを起こしにくい</li>
+      <li>「また会いたい」より「離れたくない」と思われる</li>
+    </ul>
+
+    <div class="highlight-box">
+      <div class="box-label">最大の発見</div>
+      <p>モテる人は「会いたくなる」存在だ。選ばれる人は「離れたくない」存在だ。この2つは似ているようで、まったく別のメカニズムで機能している。前者は「引力」、後者は「安力（安心の力）」と呼べるかもしれない。</p>
+    </div>
+
+    <h2>「モテるのに選ばれない」パターンの正体</h2>
+    <p>インタビューの中で最も多かったのは、「会うたびに楽しいのに、交際に発展しない」という悩みだった。モテる人によく見られるこのパターンの原因を分析すると、共通点が見えた。</p>
+    <p>「常に良く見せようとしている」ことだ。第一印象を作ることは得意だが、関係が深まるにつれて必要になる「素の自分を見せること」が苦手な人が多かった。「楽しい人」とは会いたくなるが、「本音を見せない人」とは深くつながろうとは思わない。</p>
+
+    <h2>「モテなくても選ばれる」パターンの正体</h2>
+    <p>逆に、「出会いの数は少ないが、会った人とは深い関係になる」という人たちには、別の共通点があった。「自分が選ぶこと」への意識が高いことだ。選ばれることより、「自分がこの人を選ぶかどうか」という視点で人と会っていた。これが逆説的に、相手に「この人は本物だ」という感覚を与えていた。</p>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>「モテたい」と「選ばれたい」は、目指す方向が違う。モテることを目指すと、外側を磨く。選ばれることを目指すと、内側を磨く。40代以降の恋愛で本当に必要なのはどちらか——100人のインタビューが出した答えは、明確だった。</p>
+  </div>
+</article>
+
+<div class="article-sep"><span>✦</span></div>
+
+<!-- ============================================================ -->
+<!-- ARTICLE 08 -->
+<!-- ============================================================ -->
+<article class="article" id="article8">
+  <div class="article-header">
+    <div class="article-number">08</div>
+    <h1 class="article-title">プロフィール写真を10パターン試した結果｜大人の恋愛市場で「刺さる1枚」の法則<br><small style="font-size:0.65em; color:var(--text-muted);">A/Bテスト実録レポート</small></h1>
+    <div class="article-meta">
+      <span class="article-tag">写真・プロフィール</span>
+      <span class="article-chars">약5,000字</span>
+    </div>
+  </div>
+
+  <div class="article-lead">
+    写真一枚で、マッチング率が3倍変わった。これは体感ではなく、実際に計測した数字だ。10パターンの写真を順番に試し、それぞれのマッチング率・メッセージ率・返信率を記録した。40代がやりがちな「惜しい写真」の正体と、「刺さる1枚」の法則を全公開する。
+  </div>
+
+  <div class="article-body">
+    <h2>検証条件</h2>
+    <p>被験者：47歳男性。同一アプリ（Pairs）で各パターンを2〜3週間ずつ使用。プロフィール文・その他の条件は統一。計測指標：いいね数/日・マッチング率（いいね→マッチの転換率）・メッセージ継続率。</p>
+
+    <h2>10パターンの結果比較</h2>
+
+    <table class="compare-table">
+      <tr>
+        <th>パターン</th>
+        <th>写真の内容</th>
+        <th>いいね/日</th>
+        <th>マッチ率</th>
+        <th>評価</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>正面・スーツ・白背景（証明写真風）</td>
+        <td>2.1件</td>
+        <td>8%</td>
+        <td class="bad">✕</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>カフェ・横向き・自然光（自撮り）</td>
+        <td>3.4件</td>
+        <td>14%</td>
+        <td class="mid">△</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>屋外・笑顔・友人と（友人は後ろ姿）</td>
+        <td>4.2件</td>
+        <td>19%</td>
+        <td class="mid">△</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>趣味の場面（料理中・自然な状態）</td>
+        <td>5.8件</td>
+        <td>27%</td>
+        <td class="good">○</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>E</td>
+        <td>プロ撮影・自然な笑顔・カジュアルな服</td>
+        <td>8.3件</td>
+        <td>38%</td>
+        <td class="good">◎</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>旅先の風景と一緒に（遠め・全身）</td>
+        <td>4.6件</td>
+        <td>21%</td>
+        <td class="mid">△</td>
+      </tr>
+      <tr>
+        <td>G</td>
+        <td>サングラス・かっこよさ重視</td>
+        <td>3.1件</td>
+        <td>12%</td>
+        <td class="bad">✕</td>
+      </tr>
+      <tr>
+        <td>H</td>
+        <td>ジム・筋肉アピール</td>
+        <td>2.8件</td>
+        <td>10%</td>
+        <td class="bad">✕</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>I</td>
+        <td>E写真＋趣味の場面（複数枚展開）</td>
+        <td>9.7件</td>
+        <td>43%</td>
+        <td class="good">◎ 最高</td>
+      </tr>
+      <tr>
+        <td>J</td>
+        <td>ペットと一緒・自然な笑顔</td>
+        <td>7.2件</td>
+        <td>33%</td>
+        <td class="good">○</td>
+      </tr>
+    </table>
+
+    <h2>「刺さる1枚」の法則 — データから見えた5つの原則</h2>
+
+    <ul class="styled-list">
+      <li><strong style="color:var(--text)">プロ撮影は費用対効果が高い</strong>——EとBの差は同じ「自然な雰囲気」でも、光・角度・表情の質が段違い。¥30,000前後の投資でマッチ率が2倍以上になる。</li>
+      <li><strong style="color:var(--text)">「かっこよく見せる」写真より「近づきやすい」写真が強い</strong>——サングラス・筋肉アピールなど「かっこいい」に振り切った写真は軒並み低評価。「話しかけたくなる」表情が最重要。</li>
+      <li><strong style="color:var(--text)">「何をしている人か」が見える写真が強い</strong>——趣味の場面写真（D）は、会話のきっかけを写真が作ってくれる。「料理好きな人なんだ」「旅行好きなんだ」という情報が、メッセージを送るハードルを下げる。</li>
+      <li><strong style="color:var(--text)">1枚より複数枚展開が圧勝</strong>——Iパターン（メイン＋サブ複数）が最高値。「この人のこと、もっと知りたい」という心理が複数枚によって生まれる。</li>
+      <li><strong style="color:var(--text)">笑顔の自然さが全ての基礎</strong>——どのパターンでも、「つくった笑顔」より「自然に出た笑顔」の方が反応が高かった。自然な笑顔を撮るには、カメラマンとの「雑談中」を狙うのが有効。</li>
+    </ul>
+
+    <div class="callout">
+      <p>写真は「自分をよく見せるツール」ではなく、「会ってみたいと思わせるツール」だ。40代の写真戦略は、「かっこよさ・きれいさ」より「近づきやすさ・話しかけやすさ」を優先すべきだ。</p>
+    </div>
+  </div>
+
+  <div class="article-conclusion">
+    <div class="label">Closing</div>
+    <p>10パターン試して、最もマッチ率が高かったのは「プロ撮影のメイン写真＋趣味の場面写真の複数枚展開」だった。写真は最初の10秒で判断される。その10秒で「近づいてみたい」と思わせるかどうかが、全ての出発点だ。外見ではなく、「出会う前から関係が始まっている写真」を目指してほしい。</p>
+  </div>
+</article>
+
+<div class="section-divider" style="margin-top:80px;"></div>
+<footer class="footer-cta">
+  <div class="cta-label">Community</div>
+  <h3>データで語る大人の恋愛戦略、続きはコミュニティで</h3>
+  <p>やっぴー（@8p_thankyou）が運営する限定コミュニティでは<br>このような検証・比較コンテンツを定期配信しています。</p>
+  <a href="https://x.com/8p_thankyou" class="cta-btn">▶ @8p_thankyou をフォロー</a>
+</footer>
+
+</body>
+</html>
